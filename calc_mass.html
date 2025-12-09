@@ -1,0 +1,131 @@
+﻿<div class="pages navbar-fixed">
+  <!-- Page, "data-page" contains page name -->
+  <div data-page="calc_mass" class="page with-subnavbar">
+    <!-- Top Navbar. In Material theme it should be inside of the page-->
+    <div class="navbar neo-navbar neo-fill-navbar" style="border-radius: 0px !important">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link back">
+            <div class="neo-circle-nav"><i class="icon icon-back"></i></div>
+          </a>
+        </div>
+        <div class="center" data-navcap>Масса тела ребенка</div>
+      </div>
+    </div>
+    <div class="toolbar tabbar bg-page-color" style="background-color: unset">
+      <div class="toolbar-inner">
+        <a href="#tab1" class="tab-link active">До 1 года</a>
+        <a href="#tab2" class="tab-link">От 1 года</a>
+      </div>
+    </div>
+    <!-- <div class="tabs-swipeable-wrap"></div> -->
+    <div class="page-content tabs bg-page-color" style="padding-top: 140px">
+      <!-- Scrollable page content -->
+      <!-- <div class="tabs"></div> -->
+      <div id="tab1" class="tab active">
+        <div class="content-block">
+          <!-- form -->
+          <div class="card">
+            <div class="card-content">
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label" style="font-size: 16px">Возраст ребенка</div>
+                        <div class="item-input">
+                          <select id="selDefore">
+                            <option>1 месяц</option>
+                            <option>2 месяца</option>
+                            <option>3 месяца</option>
+                            <option>4 месяца</option>
+                            <option>5 месяцев</option>
+                            <option>6 месяцев</option>
+                            <option>7 месяцев</option>
+                            <option>8 месяцев</option>
+                            <option>9 месяцев</option>
+                            <option>10 месяцев</option>
+                            <option>11 месяцев</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label" style="font-size: 16px">Масса тела при рождении</div>
+                        <div class="item-input">
+                          <input type="number" min="0" id="inp_massa" required />
+                        </div>
+                      </div>
+                      <div class="item-media">гр</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- /form -->
+          <p class="buttons-row">
+            <a href="#" class="button button-fill button-raised" id="btnCaclB">Расчитать</a>
+            <a href="#" class="button button-raised c-red" id="btnClearB">Очистить</a>
+          </p>
+        </div>
+        <div class="content-block-title">Результат</div>
+        <div class="card neo-card-result">
+          <div class="card-content">
+            <div class="card-content-inner fn-large" id="block-result" style="text-align: center">-</div>
+          </div>
+        </div>
+      </div>
+      <div id="tab2" class="tab">
+        <div class="content-block">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-content-inner">
+                <div class="list-block">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label" style="font-size: 16px">Возраст ребенка</div>
+                          <div class="item-input">
+                            <select id="selAfter">
+                              <option>Не выбрано</option>
+                              <option>1 год</option>
+                              <option>2 года</option>
+                              <option>3 года</option>
+                              <option>4 года</option>
+                              <option>5 лет</option>
+                              <option>6 лет</option>
+                              <option>7 лет</option>
+                              <option>8 лет</option>
+                              <option>9 лет</option>
+                              <option>10 лет</option>
+                              <option>11 лет</option>
+                              <option>12 лет</option>
+                              <option>13 лет</option>
+                              <option>14 лет</option>
+                              <option>15 лет</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-block-title">Результат</div>
+        <div class="card neo-card-result">
+          <div class="card-content">
+            <div class="card-content-inner" id="resAfter">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

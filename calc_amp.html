@@ -1,0 +1,64 @@
+﻿<div class="pages navbar-fixed">
+  <!-- Page, "data-page" contains page name -->
+  <div data-page="calc_amp" class="page">
+    <!-- Top Navbar. In Material theme it should be inside of the page-->
+    <div class="navbar neo-navbar neo-fill-navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link back">
+            <div class="neo-circle-nav"><i class="icon icon-back"></i></div>
+          </a>
+        </div>
+        <div class="center" data-navcap>Расчёт мг в ампуле</div>
+      </div>
+    </div>
+    <!-- Scrollable page content -->
+    <div class="page-content bg-page-color padding-top-page">
+      <div class="content-block">
+        <!-- form -->
+        <div class="card">
+          <div class="card-content">
+            <div class="list-block">
+              <ul>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label" style="font-size: 16px">Концентрация раствора</div>
+                      <div class="item-input">
+                        <input type="number" name="name" min="0" max="100" id="inp_percent" required />
+                      </div>
+                    </div>
+                    <div class="item-media">%</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label" style="font-size: 16px">Обьем ампулы</div>
+                      <div class="item-input">
+                        <input type="number" min="0" id="inp_amp" required />
+                      </div>
+                    </div>
+                    <div class="item-media">мл</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /form -->
+        <p class="buttons-row">
+          <a href="#" class="button button-fill button-raised" id="btnCacl">Расчитать</a>
+          <a href="#" class="button button-raised" id="btnClear">Очистить</a>
+        </p>
+        <div id="errorDiv" class="color-red" style="display: none"></div>
+        <div class="content-block-title">Результат</div>
+        <div class="card neo-card-result">
+          <div class="card-content">
+            <div class="card-content-inner fn-large" id="block-result" style="text-align: center">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

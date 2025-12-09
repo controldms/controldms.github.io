@@ -1,0 +1,88 @@
+﻿<div class="pages navbar-fixed">
+  <!-- Page, "data-page" contains page name -->
+  <div data-page="calc_glasgo" class="page">
+    <!-- Top Navbar. In Material theme it should be inside of the page-->
+    <div class="navbar neo-navbar neo-fill-navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link back">
+            <div class="neo-circle-nav"><i class="icon icon-back"></i></div>
+          </a>
+        </div>
+        <div class="center" data-navcap>Шкала комы Глазго</div>
+      </div>
+    </div>
+    <!-- Scrollable page content -->
+    <div class="page-content bg-page-color padding-top-page">
+      <div class="content-block">
+        <!-- form -->
+        <div class="card">
+          <div class="card-content">
+            <div class="list-block">
+              <ul>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label" style="font-size: 16px">Открывание глаз</div>
+                      <div class="item-input">
+                        <select id="sel_eye">
+                          <option value="0">Не выбрано</option>
+                          <option value="4">Произвольное</option>
+                          <option value="3">На обращенную речь</option>
+                          <option value="2">На болевой раздражитель</option>
+                          <option value="1">Отсутствует при любом раздражителе</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label" style="font-size: 16px">Словесный ответ</div>
+                      <div class="item-input">
+                        <select id="sel_speech">
+                          <option value="0">Не выбрано</option>
+                          <option value="5">Развернутая спонтанная речь</option>
+                          <option value="4">Произнесение отдельных фраз</option>
+                          <option value="3">Произнесение отдельных слов в ответ на болевое раздражение, команду или спонтанно</option>
+                          <option value="2">Нечленораздельные звуки в ответ на раздражение или спонтанно</option>
+                          <option value="1">Речь отсутствует даже на раздражение</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title label" style="font-size: 16px">Двигательные реакции</div>
+                      <div class="item-input">
+                        <select id="sel_move">
+                          <option value="0">Не выбрано</option>
+                          <option value="6">Выполняет команды</option>
+                          <option value="5">Целенаправленные на болевой раздражитель</option>
+                          <option value="4">Нецеленаправленные на болевой раздражитель</option>
+                          <option value="3">Тоническое сгибание на болевой раздражитель</option>
+                          <option value="2">Тоническое разгибание на болевой раздражитель</option>
+                          <option value="1">Отсутствуют</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /form -->
+        <div class="content-block-title">Результат</div>
+        <div class="card neo-card-result">
+          <div class="card-content">
+            <div class="card-content-inner fn-large" id="block-result" style="text-align: center">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

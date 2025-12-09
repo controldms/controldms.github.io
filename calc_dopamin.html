@@ -1,0 +1,247 @@
+﻿<div class="pages navbar-fixed">
+  <!-- Page, "data-page" contains page name -->
+  <div data-page="calc_dopamin" class="page with-subnavbar bg-gray-my">
+    <!-- Top Navbar. In Material theme it should be inside of the page-->
+    <div class="navbar neo-navbar neo-fill-navbar" style="border-radius: 0px !important">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link back">
+            <div class="neo-circle-nav"><i class="icon icon-back"></i></div>
+          </a>
+        </div>
+        <div class="center" data-navcap>Допамин (Дофамин)</div>
+      </div>
+    </div>
+    <div class="toolbar tabbar bg-page-color" style="background-color: unset">
+      <div class="toolbar-inner">
+        <a href="#tab1" class="tab-link active"> Дети </a>
+        <a href="#tab2" class="tab-link">
+          <i class="icon demo-icon-2"> Взрослые </i>
+        </a>
+      </div>
+    </div>
+    <!-- <div class="tabs-swipeable-wrap"></div> -->
+    <div class="page-content tabs bg-page-color" style="padding-top: 140px">
+      <div id="tab1" class="tab active content-block">
+        <!-- form -->
+        <form>
+          <div class="card">
+            <div class="card-content">
+              <div class="list-block">
+                <ul>
+                  <!-- Single radio input -->
+                  <li>
+                    <label class="label-radio item-content">
+                      <!-- Checked by default -->
+                      <input type="radio" name="child-radio" value="cap" checked="checked" />
+                      <div class="item-media">
+                        <i class="icon icon-form-radio"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Капельно</div>
+                      </div>
+                    </label>
+                  </li>
+                  <!-- Another radio input -->
+                  <li>
+                    <label class="label-radio item-content">
+                      <input type="radio" name="child-radio" value="inf" />
+                      <div class="item-media">
+                        <i class="icon icon-form-radio"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Инфузомат</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label" style="font-size: 16px">Скорость введения допамина, мкг/кг*мин</div>
+                        <div class="item-input">
+                          <select data-select="child-speed">
+                            <option value="0">5</option>
+                            <option value="1">10</option>
+                            <option value="2">15</option>
+                            <option value="3">20</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--    /card    -->
+          <div class="card">
+            <div class="card-content">
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label" style="font-size: 16px">Масса тела, кг</div>
+                        <div class="item-input">
+                          <select data-select="child-mass">
+                            <option value="0">2,5</option>
+                            <option value="1">5</option>
+                            <option value="2">10</option>
+                            <option value="3">15</option>
+                            <option value="4">20</option>
+                            <option value="5">25</option>
+                            <option value="6">30</option>
+                            <option value="7">35</option>
+                            <option value="8">40</option>
+                            <option value="9">45</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--    /card    -->
+          <div class="card">
+            <div class="card-content">
+              <div class="card-content-inner fn-large" data-info="child" style="text-align: center">-</div>
+            </div>
+          </div>
+          <!--    /card    -->
+        </form>
+        <!-- РЕЗУЛЬТАТ -->
+        <div class="content-block-title">Результат</div>
+        <div class="card neo-card-result">
+          <div class="card-content">
+            <div class="card-content-inner fn-large" data-block="result-child" style="text-align: center">-</div>
+          </div>
+        </div>
+        <!--/content-block-->
+      </div>
+      <!--    /tab1    -->
+      <div id="tab2" class="tab">
+        <!-- form -->
+        <form>
+          <div class="card">
+            <div class="card-content">
+              <div class="list-block">
+                <ul>
+                  <!-- Single radio input -->
+                  <li>
+                    <label class="label-radio item-content">
+                      <!-- Checked by default -->
+                      <input type="radio" name="parent-radio" value="cap" checked="checked" />
+                      <div class="item-media">
+                        <i class="icon icon-form-radio"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Капельно</div>
+                      </div>
+                    </label>
+                  </li>
+                  <!-- Another radio input -->
+                  <li>
+                    <label class="label-radio item-content">
+                      <input type="radio" name="parent-radio" value="inf" />
+                      <div class="item-media">
+                        <i class="icon icon-form-radio"></i>
+                      </div>
+                      <div class="item-inner">
+                        <div class="item-title">Инфузомат</div>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label" style="font-size: 16px">Скорость введения допамина, мкг/кг*мин</div>
+                        <div class="item-input">
+                          <select data-select="parent-speed-cap">
+                            <option value="0" selected>5</option>
+                            <option value="1">10</option>
+                            <option value="2">15</option>
+                            <option value="3">20</option>
+                            <option value="3">25</option>
+                          </select>
+                          <select data-select="parent-speed" class="hidden">
+                            <option value="0">2</option>
+                            <option value="0" selected>5</option>
+                            <option value="1">10</option>
+                            <option value="2">15</option>
+                            <option value="3">20</option>
+                            <option value="3">25</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--    /card    -->
+          <div class="card">
+            <div class="card-content">
+              <div class="list-block">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label" style="font-size: 16px">Масса тела, кг</div>
+                        <div class="item-input">
+                          <select data-select="parent-mass">
+                            <option value="0">50</option>
+                            <option value="1">60</option>
+                            <option value="2">70</option>
+                            <option value="3">80</option>
+                            <option value="4">90</option>
+                            <option value="5">100</option>
+                            <option value="6">110</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--    /card    -->
+          <div class="card">
+            <div class="card-content">
+              <div class="card-content-inner fn-large" data-info="parent" style="text-align: center">-</div>
+            </div>
+          </div>
+          <!--    /card    -->
+        </form>
+        <!-- РЕЗУЛЬТАТ -->
+        <div class="content-block-title">Результат</div>
+        <div class="card neo-card-result">
+          <div class="card-content">
+            <div class="card-content-inner fn-large" data-block="result-parent" style="text-align: center">-</div>
+          </div>
+        </div>
+        <!--/content-block-->
+      </div>
+      <!--    /tab2    -->
+    </div>
+  </div>
+</div>
