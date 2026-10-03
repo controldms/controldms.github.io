@@ -17,6 +17,21 @@
  * under the License.
  */
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js", {
+        scope: "/",
+      })
+      .then((registration) => {
+        console.log("Service Worker зарегистрирован:", registration.scope);
+      })
+      .catch((error) => {
+        console.error("Ошибка регистрации Service Worker:", error);
+      });
+  });
+}
+
 var mainView;
 var $$ = Dom7;
 mpro = new Framework7({
@@ -25,8 +40,8 @@ mpro = new Framework7({
 });
 mainView = mpro.addView(".view-main", {});
 
-mpro.onPageInit('empty', function (page) {
-    console.log('page info inited');
+mpro.onPageInit("empty", function (page) {
+  console.log("page info inited");
 });
 
 const ALG_MENU = [
@@ -1711,24 +1726,24 @@ const ALG_MENU = [
 ];
 var KLIN_REC;
 $$.getJSON("data/klin/all_klin.json", function (data) {
-    KLIN_REC = data;
+  KLIN_REC = data;
 });
 // МКБ
 var mkbLEVEL1 = {};
 var mkbLEVEL2 = {};
 var mkbLEVEL3 = {};
 var mkbLEVEL4 = {};
-$$.getJSON("data/mkb/level1.json",function(data){
-	mkbLEVEL1 = data;
+$$.getJSON("data/mkb/level1.json", function (data) {
+  mkbLEVEL1 = data;
 });
-$$.getJSON("data/mkb/level2.json",function(data){
-	mkbLEVEL2 = data;
+$$.getJSON("data/mkb/level2.json", function (data) {
+  mkbLEVEL2 = data;
 });
-$$.getJSON("data/mkb/level3.json",function(data){
-	mkbLEVEL3 = data;
+$$.getJSON("data/mkb/level3.json", function (data) {
+  mkbLEVEL3 = data;
 });
-$$.getJSON("data/mkb/level4.json",function(data){
-	mkbLEVEL4 = data;
+$$.getJSON("data/mkb/level4.json", function (data) {
+  mkbLEVEL4 = data;
 });
 // --МКБ
 
@@ -1751,7 +1766,7 @@ mpro.onPageInit("mkb", function (page) {
 // --МКБ-10
 // Страница - Клин.Рекомендаций
 mpro.onPageInit("klin_single", function (page) {
-//   if (FSIZE) page.container.classList.add(FSIZE);
+  //   if (FSIZE) page.container.classList.add(FSIZE);
   mainView.reloadPage("klin_un01.html");
   if (page.query.id == 666) {
     mainView.router.load({ url: "aig.html", reload: true, force: true });
@@ -1770,7 +1785,7 @@ mpro.onPageInit("klin_single", function (page) {
     $$("abbr").on("click", function () {
       var clickedLink = this;
       var popoverHTML = '<div class="popover">' + '<div class="popover-inner">' + '<div class="content-block">' + "" + this.title + "" + "</div>" + "</div>" + "</div>";
-    //   POPUPISOPEM.POPOVER = true;
+      //   POPUPISOPEM.POPOVER = true;
       mpro.popover(popoverHTML, clickedLink);
     });
     // --Аббривиатуры
@@ -1790,23 +1805,23 @@ mpro.onPageInit("klin_single", function (page) {
 //Конец - Клин.Рекомендация
 //АЛГОРИТМЫ СМП
 mpro.onPageInit("algorithm_menu", function (page) {
-    const list = page.container.querySelector('[data-section="list"]');
-    const title = page.container.querySelector("[data-caption]");
-    if(page.query.indx){
-        const i = parseInt(page.query.indx);
-        title.innerText = ALG_MENU[i].label;
-        list.innerHTML = Template7.templates.algorithm_sub_menu(ALG_MENU[i].items);
-    } else {
-        title.innerText = "Алгоритмы СМП";
-        list.innerHTML = Template7.templates.algorithm_main_menu(ALG_MENU);
-    }
+  const list = page.container.querySelector('[data-section="list"]');
+  const title = page.container.querySelector("[data-caption]");
+  if (page.query.indx) {
+    const i = parseInt(page.query.indx);
+    title.innerText = ALG_MENU[i].label;
+    list.innerHTML = Template7.templates.algorithm_sub_menu(ALG_MENU[i].items);
+  } else {
+    title.innerText = "Алгоритмы СМП";
+    list.innerHTML = Template7.templates.algorithm_main_menu(ALG_MENU);
+  }
 });
 // --АЛГОРИТМЫ СМП
 /* =========================================
 АТЛАС ЭКГ
 ============================================*/
 mpro.onPageInit("atlas_ekg", function (page) {
-//   if (FSIZE) page.container.classList.add(FSIZE);
+  //   if (FSIZE) page.container.classList.add(FSIZE);
   var url_page = "Atlas_EKG_" + page.query.id + ".html";
   $$.get("data/ekg/" + url_page, function (data) {
     page.container.querySelector(".page-content").innerHTML = data;
@@ -2438,9 +2453,9 @@ mpro.searchKlin = function (search) {
       if (flag) res.push({ id: key, name: str });
     }
     $$(".popup-klin .preloader").hide();
-    if(res.length == 0){
-        $$(".popup-klin .search-results").html(`<div class="no-search-result">Ничего не найдено</div>`);
-        return;
+    if (res.length == 0) {
+      $$(".popup-klin .search-results").html(`<div class="no-search-result">Ничего не найдено</div>`);
+      return;
     }
     $$(".popup-klin .search-results").html(Template7.templates.klinListTemplate(res));
   }, 300);
@@ -2463,12 +2478,12 @@ $$(".popup-klin").on("open", function () {
   POPUPISOPEN.klin = true;
   mySearchKlin.enable();
 });
-  $$(".popup-klin").on("opened", function () {
-    $$('.popup input[type="search"]')[0].focus();
-  });
-  $$(".popup-klin .search-results").on("click", "li", function () {
-    mySearchKlin.disable();
-  });
+$$(".popup-klin").on("opened", function () {
+  $$('.popup input[type="search"]')[0].focus();
+});
+$$(".popup-klin .search-results").on("click", "li", function () {
+  mySearchKlin.disable();
+});
 // МКБ-10 ПОИСК
 // ===========================================================================
 mpro.searchMkb = function (search) {
@@ -2578,9 +2593,9 @@ mpro.searchAlg = function (search) {
   searchAlgTimeout = setTimeout(function () {
     search = search.split(" ");
     var res = [];
-    for(let i=0;i<ALG_MENU.length;i++){
+    for (let i = 0; i < ALG_MENU.length; i++) {
       const main = ALG_MENU[i];
-      for(let j=0;j<main.items.length;j++){
+      for (let j = 0; j < main.items.length; j++) {
         const str = main.items[j].label;
         let flag = true;
         search.forEach(function (word) {
@@ -2590,9 +2605,9 @@ mpro.searchAlg = function (search) {
       }
     }
     $$(`${PP_SELECTOR_ALG} .preloader`).hide();
-    if(res.length == 0){
-        $$(`${PP_SELECTOR_ALG} .search-results`).html(`<div class="no-search-result">Ничего не найдено</div>`);
-        return;
+    if (res.length == 0) {
+      $$(`${PP_SELECTOR_ALG} .search-results`).html(`<div class="no-search-result">Ничего не найдено</div>`);
+      return;
     }
     $$(`${PP_SELECTOR_ALG} .search-results`).html(Template7.templates.searchAlgTemplate(res));
   }, 300);
@@ -2615,12 +2630,12 @@ $$(`${PP_SELECTOR_ALG}`).on("open", function () {
   POPUPISOPEN.ALG = true;
   searchAlg.enable();
 });
-  $$(`${PP_SELECTOR_ALG}`).on("opened", function () {
-    $$('.popup input[type="search"]')[0].focus();
-  });
-  $$(`${PP_SELECTOR_ALG} .search-results`).on("click", "li", function () {
-    searchAlg.disable();
-  });
+$$(`${PP_SELECTOR_ALG}`).on("opened", function () {
+  $$('.popup input[type="search"]')[0].focus();
+});
+$$(`${PP_SELECTOR_ALG} .search-results`).on("click", "li", function () {
+  searchAlg.disable();
+});
 
 var app = {
   initialize: function () {
