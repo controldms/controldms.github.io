@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Нет подключения</title>
+    <style>
+      :root {
+        --bg-1: #0f172a;
+        --bg-2: #1e293b;
+        --fg: #e2e8f0;
+        --muted: #94a3b8;
+        --accent: #38bdf8;
+        --accent-2: #818cf8;
+        --card: rgba(255, 255, 255, 0.04);
+        --border: rgba(255, 255, 255, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: var(--fg);
+        background: radial-gradient(circle at 20% 0%, var(--bg-2), var(--bg-1) 60%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* Мягкое декоративное свечение на фоне */
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.35;
+        pointer-events: none;
+        z-index: 0;
+      }
+      body::before {
+        width: 420px;
+        height: 420px;
+        background: var(--accent);
+        top: -160px;
+        left: -120px;
+      }
+      body::after {
+        width: 380px;
+        height: 380px;
+        background: var(--accent-2);
+        bottom: -160px;
+        right: -120px;
+      }
+
+      .card {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 460px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 40px 32px 32px;
+        text-align: center;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        animation: fade-in 0.5s ease both;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .icon-wrap {
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 24px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(140deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
+        border: 1px solid var(--border);
+      }
+
+      .icon-wrap svg {
+        width: 52px;
+        height: 52px;
+        stroke: var(--accent);
+        stroke-width: 1.6;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* Лёгкое покачивание иконки */
+      .icon-wrap svg .waves {
+        animation: wave 2.4s ease-in-out infinite;
+        transform-origin: center bottom;
+      }
+      @keyframes wave {
+        0%,
+        100% {
+          opacity: 0.35;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        line-height: 1.25;
+        margin: 0 0 12px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      p {
+        margin: 0 0 28px;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      button,
+      a.btn {
+        appearance: none;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        padding: 12px 22px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        font-family: inherit;
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      button:active,
+      a.btn:active {
+        transform: scale(0.97);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #0b1020;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.08);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--fg);
+        border-color: var(--border);
+      }
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      .hint {
+        margin-top: 24px;
+        font-size: 0.78rem;
+        color: var(--muted);
+        opacity: 0.7;
+      }
+
+      /* Скрываем вторичную кнопку, если история пустая */
+      .btn-secondary[hidden] {
+        display: none;
+      }
+
+      /* Уважаем настройку "меньше движения" */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card" role="main">
+      <div class="icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <!-- Облако с перечёркнутым соединением -->
+          <path d="M2 2 L22 22" />
+          <path d="M5.5 16.5 A4.5 4.5 0 0 1 6 7.6" />
+          <path d="M9.4 6.2 A5 5 0 0 1 18 8" />
+          <path d="M20 12.5 A4 4 0 0 1 19 20.4" />
+          <path d="M15.5 20.5 H7 A4.5 4.5 0 0 1 5.5 16.5" />
+        </svg>
+      </div>
+
+      <h1>Страница недоступна офлайн</h1>
+      <p>Похоже, соединение с интернетом пропало, а эта страница ещё не сохранилась в кэше. Проверьте сеть и попробуйте снова.</p>
+
+      <div class="actions">
+        <button class="btn-primary" type="button" onclick="location.reload()">Обновить</button>
+        <a class="btn btn-secondary" id="homeLink" href="/" hidden> На главную </a>
+      </div>
+
+      <div class="hint" id="status">Ожидание сети…</div>
+    </main>
+
+    <script>
+      // Если мы уже онлайн — сразу перезагружаем страницу,
+      // чтобы отдать пользователю реальную версию, а не заглушку.
+      window.addEventListener("online", () => location.reload());
+
+      // Показываем статус подключения
+      const status = document.getElementById("status");
+      function updateStatus() {
+        status.textContent = navigator.onLine ? "Соединение восстановлено, можно обновить страницу" : "Ожидание сети…";
+      }
+      updateStatus();
+      window.addEventListener("online", updateStatus);
+      window.addEventListener("offline", updateStatus);
+
+      // Показываем кнопку "На главную", если это не корень
+      const homeLink = document.getElementById("homeLink");
+      if (location.pathname !== "/" && location.pathname !== "/index.html") {
+        homeLink.hidden = false;
+      }
+    </script>
+  </body>
+</html>
